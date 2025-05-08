@@ -60,7 +60,7 @@ plt.title(f'Battery {battery_id} Capacity vs Cycle')
 
 Most batteries showed a consistent downward trend in capacity, confirming a non-stationary series.
 
-![image.png](attachment:image.png)
+![image](https://github.com/user-attachments/assets/c75e0674-b982-4e6e-8fd7-58291ad0a8e1)
 
 These plots confirm the non-seasonal and monotonic nature of degradation, motivating the choice of ARIMA.
 
@@ -96,7 +96,8 @@ differenced = series.diff().dropna()
 
 These results demonstrate that raw capacity data is non-stationary, but becomes stationary after first differencing, justifying d=1.
 
-![image-2.png](attachment:image-2.png)
+![image](https://github.com/user-attachments/assets/9deae5cb-8c93-45fb-bcfc-0ed37448db3c)
+
 
 ### ADF Test Results After Differencing
 
@@ -123,13 +124,14 @@ These plots guided us to try ARIMA(3,1,2) and other nearby models (for battery B
 
 The ACF and PACF for the other batteries cutoffs—indicated a mixed ARIMA model with p = q = 1.
 
-![image-3.png](attachment:image-3.png)
+![image](https://github.com/user-attachments/assets/83141ea8-fbef-4b5a-9dfd-623a910c6021)
 
-![image-4.png](attachment:image-4.png)
+![image](https://github.com/user-attachments/assets/982939ab-2baa-4260-9b2c-9338c299a1e7)
 
-![image-5.png](attachment:image-5.png)
+![image](https://github.com/user-attachments/assets/ce7eefc3-4567-454d-9493-003517b29bea)
 
-![image-6.png](attachment:image-6.png)
+![image](https://github.com/user-attachments/assets/9d672609-36d2-4844-8588-b297b14b755a)
+
 
 ---
 
@@ -179,13 +181,14 @@ residuals = model_fit.resid
 | B0018   | Not Gaussian                 | Independent                       | 0.4476             |
 
 
-![image-7.png](attachment:image-7.png)
+![image](https://github.com/user-attachments/assets/2a78918d-b639-4902-a820-e901e7dbd4dd)
 
-![image-8.png](attachment:image-8.png)
+![image](https://github.com/user-attachments/assets/867250a7-9c50-4bdb-ba4d-60a13c42d608)
 
-![image-9.png](attachment:image-9.png)
+![image](https://github.com/user-attachments/assets/6710c855-376b-4e21-aef1-4ddb62abb551)
 
-![image-10.png](attachment:image-10.png)
+![image](https://github.com/user-attachments/assets/85061e89-f399-45b9-9088-37b0e47c6c36)
+
 
 Residuals passed independence checks but failed normality, a common case in engineering datasets.
 
@@ -204,7 +207,8 @@ garch_fit = garch.fit()
 * GARCH captured the conditional variance well.
 * High beta and low alpha suggested persistent volatility with few shock spikes.
 
-![image-13.png](attachment:image-13.png)
+![image](https://github.com/user-attachments/assets/bc462d6d-46d6-4856-96cb-3470863dac31)
+
 
 This reinforced that the battery noise behavior is time-dependent and needed variance modeling.
 
@@ -218,7 +222,8 @@ We performed 20-step ahead forecasts using ARIMA(3,1,2) for B0018 and ARIMA(1,1,
 forecast = model_fit.get_forecast(steps=20)
 ```
 
-![image-11.png](attachment:image-11.png)
+![image](https://github.com/user-attachments/assets/1f56721b-0739-41ab-a12f-f36d1a98c2aa)
+
 
 Forecasts accurately tracked downward trends and are visually in sync with test set data.
 
