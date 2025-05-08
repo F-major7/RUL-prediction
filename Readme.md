@@ -242,3 +242,4 @@ The final model, ARIMA(3,1,2), provided accurate forecasts. A GARCH(1,1) extensi
 * GARCH adds value when noise patterns evolve over time.
 
 
+
